@@ -1,0 +1,37 @@
+# Local build output
+HKDownloader.exe
+*.pdb
+*.tmp
+*.previous
+self-test-report.txt
+
+# Runtime data / downloads
+settings.json
+ajustes.json
+tools/
+herramientas/
+YouTube/
+Twitch VODs/
+Kick/
+Instagram/
+TikTok/
+Facebook/
+Other/
+# Partial downloads and transient yt-dlp metadata
+*.part
+*.ytdl
+*.aria2
+*.temp
+
+# Local caches
+.vs/
+.vscode/
+bin/
+obj/
+__pycache__/
+# Reproducible branded assets generated from the tracked SVG by source/build.ps1
+source/Branding/HKDownloader.ico
+source/Branding/HKDownloader.png
+source/Branding/HKDownloader.*.png
+source/Branding/HKDownloader-platform-temp.ico
+source/Branding/LogoGenerator.exe
