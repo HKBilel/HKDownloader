@@ -5,6 +5,9 @@ $target = Join-Path (Split-Path $PSScriptRoot -Parent) 'HKDownloader.exe'
 if (-not (Test-Path $compiler)) { throw 'The x64 .NET Framework compiler was not found. Enable .NET Framework 4.8.' }
 $branding = Join-Path $PSScriptRoot 'Branding'
 $logoSvg = Join-Path $branding 'HKDownloader.svg'
+$appIconSvg = Join-Path $branding 'HKDownloader-AppIcon.svg'
+$appIconPng = Join-Path $branding 'HKDownloader-AppIcon.png'
+$appIconIco = Join-Path $branding 'HKDownloader-AppIcon.ico'
 $logoPng = Join-Path $branding 'HKDownloader.png'
 $logoIco = Join-Path $branding 'HKDownloader.ico'
 $logoGenerator = Join-Path $branding 'LogoGenerator.exe'
@@ -33,6 +36,9 @@ try {
     & $logoGenerator $logoSvg $logoPng $logoIco
     if ($LASTEXITCODE -ne 0) { throw 'Official SVG icon rendering failed.' }
     if (-not (Test-Path $logoPng) -or -not (Test-Path $logoIco)) { throw 'Missing generated neutral logo assets.' }
+    & $logoGenerator $appIconSvg $appIconPng $appIconIco
+    if ($LASTEXITCODE -ne 0) { throw 'Windows application icon SVG rendering failed.' }
+    if (-not (Test-Path $appIconPng) -or -not (Test-Path $appIconIco)) { throw 'Missing generated Windows app icon assets.' }
     foreach ($variant in $platformVariants) {
         $variantPng = Join-Path $branding ('HKDownloader.' + $variant.Name + '.png')
         & $logoGenerator $logoSvg $variantPng $temporaryPlatformIco $variant.Background $variant.Foreground
@@ -45,7 +51,7 @@ try {
     Remove-Item -LiteralPath $temporaryPlatformIco -Force -ErrorAction SilentlyContinue
 }
 $references = @('System.dll','System.Core.dll','System.Net.Http.dll','System.Web.Extensions.dll','System.IO.Compression.dll','System.IO.Compression.FileSystem.dll','System.Windows.Forms.dll','System.Drawing.dll','System.Xaml.dll','WPF\WindowsBase.dll','WPF\PresentationCore.dll','WPF\PresentationFramework.dll')
-$options = @('/nologo','/target:winexe','/platform:x64','/optimize+','/codepage:65001',('/out:' + $target),('/win32manifest:' + (Join-Path $PSScriptRoot 'app.manifest')),('/win32icon:' + $logoIco),('/resource:' + $logoPng + ',HKDownloader.Logo.png'),('/resource:' + (Join-Path $PSScriptRoot 'MainWindow.xaml') + ',MainWindow.xaml'))
+$options = @('/nologo','/target:winexe','/platform:x64','/optimize+','/codepage:65001',('/out:' + $target),('/win32manifest:' + (Join-Path $PSScriptRoot 'app.manifest')),('/win32icon:' + $appIconIco),('/resource:' + $appIconPng + ',HKDownloader.AppIcon.png'),('/resource:' + $logoPng + ',HKDownloader.Logo.png'),('/resource:' + (Join-Path $PSScriptRoot 'MainWindow.xaml') + ',MainWindow.xaml'))
 foreach ($variant in $platformVariants) {
     $variantPng = Join-Path $branding ('HKDownloader.' + $variant.Name + '.png')
     $options += ('/resource:' + $variantPng + ',HKDownloader.Logo.' + $variant.Name + '.png')
