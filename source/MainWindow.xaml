@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="HKDownloader · v1.0.0" Width="1120" Height="810" MinWidth="870" MinHeight="630" WindowStartupLocation="CenterScreen" Background="{DynamicResource CanvasBrush}" Foreground="{DynamicResource TextBrush}" FontFamily="Segoe UI" FontSize="14" UseLayoutRounding="True">
+  <Window.Resources>
+    <SolidColorBrush x:Key="CanvasBrush" Color="#101219"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#1B202B"/>
+    <SolidColorBrush x:Key="SurfaceAltBrush" Color="#222936"/>
+    <SolidColorBrush x:Key="InputBrush" Color="#10161F"/>
+    <SolidColorBrush x:Key="TextBrush" Color="#F6F7FA"/>
+    <SolidColorBrush x:Key="MutedBrush" Color="#A9B3C4"/>
+    <SolidColorBrush x:Key="BorderBrushApp" Color="#384151"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#FF0000"/>
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="#452127"/>
+    <SolidColorBrush x:Key="OnAccentBrush" Color="White"/>
+    <Style TargetType="TextBlock"><Setter Property="TextWrapping" Value="Wrap"/></Style>
+    <Style TargetType="Button">
+      <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+      <Setter Property="Background" Value="{DynamicResource SurfaceAltBrush}"/>
+      <Setter Property="Padding" Value="15,11"/><Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button">
+        <Border x:Name="buttonBorder" Background="{TemplateBinding Background}" CornerRadius="4" Padding="{TemplateBinding Padding}" BorderBrush="{DynamicResource BorderBrushApp}" BorderThickness="0">
+          <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <ControlTemplate.Triggers>
+          <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="buttonBorder" Property="Opacity" Value="0.82"/></Trigger>
+          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="buttonBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/><Setter TargetName="buttonBorder" Property="BorderThickness" Value="2"/></Trigger>
+          <Trigger Property="IsEnabled" Value="False"><Setter TargetName="buttonBorder" Property="Opacity" Value="0.4"/></Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="TextBox">
+      <Setter Property="Background" Value="{DynamicResource InputBrush}"/><Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+      <Setter Property="CaretBrush" Value="{DynamicResource AccentBrush}"/><Setter Property="BorderBrush" Value="{DynamicResource BorderBrushApp}"/>
+      <Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="11,10"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="SelectionBrush" Value="{DynamicResource AccentBrush}"/>
+    </Style>
+    <Style TargetType="ComboBoxItem">
+      <Setter Property="Background" Value="{DynamicResource SurfaceAltBrush}"/><Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+      <Setter Property="Padding" Value="10,8"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBoxItem">
+        <Border x:Name="item" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border>
+        <ControlTemplate.Triggers><Trigger Property="IsHighlighted" Value="True"><Setter TargetName="item" Property="Background" Value="{DynamicResource AccentSoftBrush}"/></Trigger><Trigger Property="IsSelected" Value="True"><Setter TargetName="item" Property="Background" Value="{DynamicResource AccentSoftBrush}"/></Trigger></ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="ComboBox">
+      <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/><Setter Property="Background" Value="{DynamicResource InputBrush}"/>
+      <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushApp}"/><Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="MinHeight" Value="41"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ComboBox">
+        <Grid>
+          <ToggleButton x:Name="MenuToggle" Focusable="False" ClickMode="Press" IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+            <ToggleButton.Template><ControlTemplate TargetType="ToggleButton"><Border x:Name="menuButtonBorder" Background="{DynamicResource InputBrush}" BorderBrush="{DynamicResource BorderBrushApp}" BorderThickness="1" CornerRadius="4"><Path Data="M 0 0 L 5 5 L 10 0" Stroke="{DynamicResource MutedBrush}" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Width="11" Height="6" Stretch="Fill" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,12,0"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="menuButtonBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/></Trigger><Trigger Property="IsChecked" Value="True"><Setter TargetName="menuButtonBorder" Property="Background" Value="{DynamicResource AccentSoftBrush}"/><Setter TargetName="menuButtonBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/></Trigger></ControlTemplate.Triggers></ControlTemplate></ToggleButton.Template>
+          </ToggleButton>
+          <ContentPresenter Margin="12,9,31,9" VerticalAlignment="Center" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
+          <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
+            <Border MinWidth="{TemplateBinding ActualWidth}" Background="{DynamicResource SurfaceAltBrush}" BorderBrush="{DynamicResource BorderBrushApp}" BorderThickness="1" CornerRadius="5"><ScrollViewer MaxHeight="280"><ItemsPresenter/></ScrollViewer></Border>
+          </Popup>
+          <Border x:Name="FocusRing" BorderBrush="{DynamicResource AccentBrush}" BorderThickness="0" CornerRadius="4" IsHitTestVisible="False"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+          <Trigger Property="IsKeyboardFocusWithin" Value="True">
+            <Setter TargetName="FocusRing" Property="BorderThickness" Value="2"/>
+          </Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style x:Key="FormatTile" TargetType="RadioButton">
+      <Setter Property="Foreground" Value="{DynamicResource MutedBrush}"/><Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="RadioButton">
+        <Border x:Name="tile" Background="{DynamicResource InputBrush}" BorderBrush="{DynamicResource BorderBrushApp}" BorderThickness="1" CornerRadius="4" Padding="15,12">
+          <ContentPresenter HorizontalAlignment="Center"/>
+        </Border>
+        <ControlTemplate.Triggers>
+          <Trigger Property="IsChecked" Value="True"><Setter TargetName="tile" Property="Background" Value="{DynamicResource AccentSoftBrush}"/><Setter TargetName="tile" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/><Setter Property="Foreground" Value="{DynamicResource TextBrush}"/></Trigger>
+          <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="tile" Property="BorderThickness" Value="2"/></Trigger>
+        </ControlTemplate.Triggers>
+      </ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style x:Key="Card" TargetType="Border">
+      <Setter Property="Background" Value="{DynamicResource SurfaceBrush}"/><Setter Property="CornerRadius" Value="4"/>
+      <Setter Property="Padding" Value="20,17"/><Setter Property="Margin" Value="0,0,0,12"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushApp}"/><Setter Property="BorderThickness" Value="1"/></Style>
+  </Window.Resources>
+  <Grid>
+ <Grid.ColumnDefinitions><ColumnDefinition Width="208"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+ <Border x:Name="NavigationPanel" Grid.Column="0" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderBrushApp}" BorderThickness="0,0,1,0" Padding="15,26,14,18">
+  <DockPanel LastChildFill="True">
+   <StackPanel x:Name="NavFooter" DockPanel.Dock="Bottom" Margin="7,0,0,0">
+    <Border Height="1" Background="{DynamicResource BorderBrushApp}" Margin="0,0,0,14"/>
+    <TextBlock Text="HK / 01.00.00" FontFamily="Consolas" FontSize="11" Foreground="{DynamicResource AccentBrush}"/>
+    <TextBlock x:Name="PoweredByText" Text="Powered by yt-dlp for every platform" TextWrapping="Wrap" FontSize="10" Foreground="{DynamicResource MutedBrush}" Margin="0,5,0,0"/>
+   </StackPanel>
+   <StackPanel x:Name="SidebarMenu">
+     <Image x:Name="SidebarLogo" Width="55" Height="55" Margin="5,0,0,11" HorizontalAlignment="Left" Stretch="Uniform" SnapsToDevicePixels="True"/>
+     <TextBlock Text="DOWNLOADER" FontSize="19" FontWeight="Bold" Margin="5,0,0,1"/>
+     <TextBlock Text="MEDIA / CONSOLE" FontFamily="Consolas" FontSize="10" Foreground="{DynamicResource MutedBrush}" Margin="5,0,0,27"/>
+     <TextBlock x:Name="AutoDetectSidebarLabel" Text="AUTO-DETECT SOURCE" FontFamily="Consolas" FontSize="11" Foreground="{DynamicResource MutedBrush}" Margin="6,0,0,9"/>
+     <TextBlock x:Name="SupportedSitesLabel" FontSize="12" TextWrapping="Wrap" Margin="6,0,0,10">
+       <Hyperlink x:Name="SupportedSitesLink" NavigateUri="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"
+                  Foreground="{DynamicResource AccentBrush}" TextDecorations="Underline">All supported yt-dlp sites ↗</Hyperlink>
+     </TextBlock>
+     <Border Height="1" Margin="0,13,0,19" Background="{DynamicResource BorderBrushApp}"/>
+     <TextBlock x:Name="LanguageLabel" Text="Language" FontSize="12" Foreground="{DynamicResource MutedBrush}" Margin="6,0,0,7"/>
+     <Grid Margin="3,0,0,0">
+       <Grid.ColumnDefinitions><ColumnDefinition Width="32"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+       <TextBlock Text="🌐" FontFamily="Segoe UI Emoji" FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Language"/>
+       <ComboBox Grid.Column="1" x:Name="LanguageBox" SelectedIndex="0" AutomationProperties.Name="Language">
+         <ComboBoxItem Tag="auto" Content="Auto"/><ComboBoxItem Tag="en" Content="English"/>
+         <ComboBoxItem Tag="es" Content="Español"/><ComboBoxItem Tag="fr" Content="Français"/>
+         <ComboBoxItem Tag="de" Content="Deutsch"/><ComboBoxItem Tag="pt" Content="Português"/>
+         <ComboBoxItem Tag="it" Content="Italiano"/><ComboBoxItem Tag="ar" Content="العربية"/>
+         <ComboBoxItem Tag="ja" Content="日本語"/><ComboBoxItem Tag="zh" Content="简体中文"/>
+       </ComboBox>
+     </Grid>
+     <TextBlock x:Name="ThemeLabel" Text="Appearance" FontSize="12" Foreground="{DynamicResource MutedBrush}" Margin="6,16,0,7"/>
+     <Grid Margin="3,0,0,0">
+       <Grid.ColumnDefinitions><ColumnDefinition Width="32"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+       <TextBlock Text="◐" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource MutedBrush}" ToolTip="Appearance"/>
+       <ComboBox Grid.Column="1" x:Name="ThemeBox" SelectedIndex="0" AutomationProperties.Name="Appearance">
+         <ComboBoxItem Tag="system" Content="System"/><ComboBoxItem Tag="light" Content="Light"/>
+         <ComboBoxItem Tag="dark" Content="Dark"/>
+       </ComboBox>
+     </Grid>
+     <CheckBox x:Name="AutoUpdateCheckBox" Foreground="{DynamicResource TextBrush}" IsChecked="True" Margin="5,18,0,0" FontSize="11">
+       <TextBlock x:Name="AutoUpdateLabel" Text="Check for application updates automatically" TextWrapping="Wrap" Width="145"/>
+     </CheckBox>
+     <Border Height="1" Margin="0,17,0,15" Background="{DynamicResource BorderBrushApp}"/>
+     <Button x:Name="NavAboutButton" Content="ⓘ  About" Margin="0,0,0,7" Padding="12,11" HorizontalContentAlignment="Left"/>
+    </StackPanel>
+  </DockPanel>
+ </Border>
+<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
+    <StackPanel Margin="28,26,28,18">
+      <Grid Margin="0,0,0,15">
+        <Grid.ColumnDefinitions><ColumnDefinition Width="56"/><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+        <Image x:Name="HeaderLogo" Width="46" Height="46" VerticalAlignment="Top" Stretch="Uniform" SnapsToDevicePixels="True"/>
+        <StackPanel Grid.Column="1">
+          <TextBlock x:Name="TitleText" Text="HKDOWNLOADER" FontSize="31" FontWeight="Bold"/>
+          <TextBlock x:Name="SubtitleText" Text="Downloads made simple" Foreground="{DynamicResource MutedBrush}" Margin="0,3,0,0"/>
+           <TextBlock x:Name="PlatformDescription" Text="Paste a link to detect the source" Foreground="{DynamicResource MutedBrush}" FontSize="11" TextWrapping="Wrap" Margin="0,5,0,0"/>
+        </StackPanel>
+        <Button x:Name="AppUpdateButton" Grid.Column="2" Content="Check updates" FontSize="12" Padding="12,9" Margin="8,5,0,0" VerticalAlignment="Top"/><Border Grid.Column="3" CornerRadius="6" Background="{DynamicResource SurfaceAltBrush}" Padding="9,5" VerticalAlignment="Top" Margin="12,8,0,0"><TextBlock Text="WINDOWS · v1.0.0" FontSize="10" Foreground="{DynamicResource MutedBrush}"/></Border>
+      </Grid>
+      <Border Style="{StaticResource Card}">
+        <StackPanel>
+          <TextBlock x:Name="LinkHeading" Text="01   PASTE THE LINK" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource AccentBrush}" Margin="0,0,0,10" FontFamily="Consolas"/>
+          <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBox x:Name="UrlBox" AutomationProperties.Name="Video or VOD URL" ToolTip="HTTP or HTTPS URL"/>
+            <Button x:Name="PasteButton" Grid.Column="1" Content="Paste" Margin="10,0,0,0"/>
+          </Grid>
+          <TextBlock x:Name="LinkHelp" Text="Paste a video or playlist URL." Foreground="{DynamicResource MutedBrush}" FontSize="12" Margin="0,9,0,0"/>
+
+          <TextBlock x:Name="PlatformNote" Text="Some content requires authentication." Foreground="{DynamicResource MutedBrush}" FontSize="12" Margin="0,7,0,0" Visibility="Collapsed"/>
+        </StackPanel>
+      </Border>
+      <Border Style="{StaticResource Card}">
+        <StackPanel>
+          <TextBlock x:Name="FormatHeading" Text="02   FORMAT &amp; QUALITY" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource AccentBrush}" Margin="0,0,0,12" FontFamily="Consolas"/>
+          <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="1*"/><ColumnDefinition Width="1*"/><ColumnDefinition Width="1.15*"/></Grid.ColumnDefinitions>
+            <RadioButton x:Name="VideoRadio" Style="{StaticResource FormatTile}" GroupName="Format" Content="MP4 · Video" IsChecked="True" Margin="0,0,9,0"/>
+            <RadioButton x:Name="AudioRadio" Grid.Column="1" Style="{StaticResource FormatTile}" GroupName="Format" Content="MP3 · Audio" Margin="0,0,12,0"/>
+            <ComboBox x:Name="QualityBox" Grid.Column="2" AutomationProperties.Name="Video quality" SelectedIndex="1" VerticalAlignment="Stretch">
+              <ComboBoxItem Content="720p · HD" Tag="720"/><ComboBoxItem Content="1080p · Full HD" Tag="1080"/>
+              <ComboBoxItem Content="1440p · 2K" Tag="1440"/><ComboBoxItem Content="2160p · 4K" Tag="2160"/>
+            </ComboBox>
+            <ComboBox x:Name="AudioQualityBox" Grid.Column="2" AutomationProperties.Name="Audio quality" SelectedIndex="0" Visibility="Collapsed">
+              <ComboBoxItem Content="320 kbps" Tag="320K"/><ComboBoxItem Content="256 kbps" Tag="256K"/>
+              <ComboBoxItem Content="192 kbps" Tag="192K"/><ComboBoxItem Content="128 kbps" Tag="128K"/>
+            </ComboBox>
+          </Grid>
+          <TextBlock x:Name="QualityHint" Text="Best available quality up to the selected limit." Foreground="{DynamicResource MutedBrush}" FontSize="12" Margin="0,10,0,0"/>
+          <StackPanel x:Name="PlaylistPanel">
+            <Border Height="1" Background="{DynamicResource BorderBrushApp}" Margin="0,15,0,13"/>
+            <CheckBox x:Name="PlaylistBox" Content="Download the complete playlist" IsChecked="True" Foreground="{DynamicResource TextBrush}" FontWeight="SemiBold" VerticalContentAlignment="Center"/>
+            <TextBlock x:Name="PlaylistHint" Text="Creates a folder for the playlist and numbers each video." Foreground="{DynamicResource MutedBrush}" FontSize="12" Margin="20,5,0,0"/>
+          </StackPanel>
+          <StackPanel x:Name="ShortVideoOptions" Visibility="Collapsed">
+            <Border Height="1" Background="{DynamicResource BorderBrushApp}" Margin="0,15,0,13"/>
+            <TextBlock x:Name="ShortOptionsTitle" Text="SHORT VIDEO OPTIONS" FontFamily="Consolas" FontSize="11" FontWeight="SemiBold" Foreground="{DynamicResource AccentBrush}" Margin="0,0,0,10"/>
+            <CheckBox x:Name="CleanSourceBox" Content="Prefer source without a watermark (if available)" IsChecked="True" Foreground="{DynamicResource TextBrush}" VerticalContentAlignment="Center"/>
+            <TextBlock x:Name="CleanSourceHint" Text="Not guaranteed: some sources contain a permanent watermark." Margin="20,5,0,10" Foreground="{DynamicResource MutedBrush}" FontSize="11"/>
+            <Grid>
+              <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+              <TextBlock x:Name="TrimEndingLabel" Text="Create a copy without the last seconds" VerticalAlignment="Center" Foreground="{DynamicResource TextBrush}"/>
+              <ComboBox x:Name="TrimEndingBox" Grid.Column="1" Width="138" SelectedIndex="0" Margin="12,0,0,0">
+                <ComboBoxItem Tag="0" Content="Off"/>
+                <ComboBoxItem Tag="1" Content="1 s"/>
+                <ComboBoxItem Tag="2" Content="2 s"/>
+                <ComboBoxItem Tag="3" Content="3 s"/>
+                <ComboBoxItem Tag="5" Content="5 s"/>
+              </ComboBox>
+            </Grid>
+            <TextBlock x:Name="TrimEndingHint" Text="Manual trimming: the app cannot detect an ending screen automatically. The original is kept." Margin="0,8,0,0" Foreground="{DynamicResource MutedBrush}" FontSize="11"/>
+          </StackPanel>
+        </StackPanel>
+      </Border>
+      <Border Style="{StaticResource Card}">
+        <StackPanel>
+          <TextBlock x:Name="FolderHeading" Text="03   SAVE TO" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource AccentBrush}" Margin="0,0,0,10" FontFamily="Consolas"/>
+          <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBox x:Name="FolderBox" AutomationProperties.Name="Destination folder"/>
+            <Button x:Name="BrowseButton" Grid.Column="1" Content="Browse" Margin="10,0,0,0"/>
+          </Grid>
+        </StackPanel>
+      </Border>
+      <Border Style="{StaticResource Card}" Background="{DynamicResource SurfaceAltBrush}" Margin="0,0,0,12" x:Name="DownloadCard">
+        <StackPanel>
+          <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBlock x:Name="StatusText" Text="Ready" FontWeight="SemiBold"/>
+            <TextBlock x:Name="CountText" Grid.Column="1" Foreground="{DynamicResource AccentBrush}" Margin="10,0,0,0"/>
+          </Grid>
+          <TextBlock x:Name="DetailText" Text="Paste a link to begin." Foreground="{DynamicResource MutedBrush}" FontSize="12" Margin="0,7,0,10" TextTrimming="CharacterEllipsis" MaxHeight="38"/>
+          <ProgressBar x:Name="ProgressBar" Height="7" Background="{DynamicResource InputBrush}" Foreground="{DynamicResource AccentBrush}" BorderThickness="0" Maximum="100"/>
+          <Grid Margin="0,17,0,0"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <Button x:Name="DownloadButton" Content="↓   Download" Background="{DynamicResource AccentBrush}" Foreground="{DynamicResource OnAccentBrush}" FontWeight="SemiBold" FontSize="15"/>
+            <Button x:Name="CancelButton" Grid.Column="1" Content="Cancel" IsEnabled="False" Margin="10,0,0,0"/>
+            <Button x:Name="OpenButton" Grid.Column="2" Content="Open folder" Margin="10,0,0,0"/>
+          </Grid>
+        </StackPanel>
+      </Border>
+      <Expander x:Name="LogExpander" Header="Download details" Foreground="{DynamicResource MutedBrush}" Margin="2,2,2,10">
+        <StackPanel>
+          <TextBox x:Name="LogBox" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="160" FontFamily="Consolas" FontSize="11" Margin="0,9,0,6"/>
+          <Button x:Name="CopyLogButton" Content="Copy details" HorizontalAlignment="Right" Padding="12,7" FontSize="12"/>
+        </StackPanel>
+      </Expander>
+      <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+        <TextBlock x:Name="EngineText" Text="Tools will be prepared on first download." Foreground="{DynamicResource MutedBrush}" FontSize="11" VerticalAlignment="Center" Margin="0,0,12,0"/>
+        <Button x:Name="UpdateButton" Grid.Column="1" Content="Update tools" FontSize="11" Padding="11,8"/>
+      </Grid>
+    </StackPanel>
+  </ScrollViewer>
+</Grid></Window>
