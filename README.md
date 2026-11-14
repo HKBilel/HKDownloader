@@ -23,6 +23,14 @@ An internet connection is required. On first use, HKDownloader may download the 
 - **Sidebar:** Language selector with a globe icon, appearance control directly below it, automatic update preference and the official [list of yt-dlp supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
 - **Dropdown menus:** Clear selection, hover and open-state styling for language, appearance, video quality and trimming options.
 
+## Video quality tiers
+
+- **Free (available now):** Download video at 720p, 1080p, 1440p or 2160p (4K), subject to the source. Resolution limits are enforced by the downloader, not just by the interface.
+- **Premium (planned):** Up to 4320p (8K), plus **Best available** with no artificial resolution ceiling (including resolutions above 8K if the source offers them).
+- **Current availability:** The Premium menu items are visible but **disabled**. Patreon membership verification has not been implemented, so no Premium unlock is being sold or promised yet. Patreon is presently a voluntary way to support development.
+
+Quality selection never upscales source content. Site availability, codecs and yt-dlp compatibility can limit the actual downloaded quality.
+
 Official release builds are compiled and tested automatically on Windows. Download the executable from GitHub Releases.
 
 ## Security and privacy

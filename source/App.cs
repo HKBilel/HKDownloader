@@ -53,6 +53,15 @@ namespace HKDownloader
         }
     }
 
+    // Premium access must be established by trusted membership verification.
+    // This first version deliberately fails closed: there is no Patreon sign-in
+    // or entitlement server yet. Never grant Premium from settings.json or a UI toggle.
+    public static class PremiumAccess
+    {
+        public static bool IsVerified { get { return false; } }
+        public static bool IsPremiumQuality(int height) { return height == 4320 || height == 0; }
+    }
+
     public static class PlatformPalette
     {
         // These brand accents are fixed; no user-edited color state.
@@ -148,7 +157,12 @@ namespace HKDownloader
         }
         public static List<string> Download(Options o, string url, string tools)
         {
-            if (!new[] { 720, 1080, 1440, 2160 }.Contains(o.Height)) throw new ArgumentException(Loc.T("heightInvalid"));
+            if (!new[] { 0, 720, 1080, 1440, 2160, 4320 }.Contains(o.Height))
+                throw new ArgumentException(Loc.T("heightInvalid"));
+            // Enforce this at the command layer, not just by disabling UI entries:
+            // a modified settings.json must never unlock 8K or uncapped downloads.
+            if (PremiumAccess.IsPremiumQuality(o.Height) && !PremiumAccess.IsVerified)
+                throw new UnauthorizedAccessException(Loc.T("premiumRequired"));
             if (!new[] { "320K", "256K", "192K", "128K" }.Contains(o.Bitrate)) throw new ArgumentException(Loc.T("bitrateInvalid"));
             string platform = DetectPlatform(url);
             string validated = platform == "other" ? ValidateUrl(url) : ValidatePlatformUrl(url, platform);
@@ -183,17 +197,27 @@ namespace HKDownloader
             if (o.Audio) args.AddRange(new[] { "-f", "bestaudio/best", "--extract-audio", "--audio-format", "mp3", "--audio-quality", o.Bitrate });
             else
             {
-                string standard = "bv*[height<=" + o.Height + "]+ba/b[height<=" + o.Height + "]";
-                // Prefer documented non-watermarked formats when the source labels them.
-                // Always fall back to the ordinary selector if no clean format is available.
-                string clean = "bv*[height<=" + o.Height + "][format_note!*=\"watermarked\"]+ba"
-                    + "/b[height<=" + o.Height + "][format_note!*=\"watermarked\"]";
-                string selector = o.PreferCleanVideo && (platform == "tiktok" || platform == "instagram")
-                    ? clean + "/" + standard : standard;
+                string selector = VideoFormatSelector(o.Height,
+                    o.PreferCleanVideo && (platform == "tiktok" || platform == "instagram"));
                 args.AddRange(new[] { "-f", selector,
                     "-S", "res,fps,vcodec:h264,acodec:aac", "--merge-output-format", "mp4", "--remux-video", "mp4" });
             }
             args.Add("--"); args.Add(validated); return args;
+        }
+
+        // Pure selector for supported quality tiers. 4320 means up to 8K;
+        // height 0 means best available with no artificial resolution limit.
+        // The caller must authorize the Premium tier *before* using either.
+        public static string VideoFormatSelector(int height, bool preferClean)
+        {
+            if (!new[] { 0, 720, 1080, 1440, 2160, 4320 }.Contains(height))
+                throw new ArgumentException(Loc.T("heightInvalid"));
+            string cap = height == 0 ? "" : "[height<=" + height.ToString(CultureInfo.InvariantCulture) + "]";
+            string standard = "bv*" + cap + "+ba/b" + cap;
+            if (!preferClean) return standard;
+            string clean = "bv*" + cap + "[format_note!*=\"watermarked\"]+ba"
+                + "/b" + cap + "[format_note!*=\"watermarked\"]";
+            return clean + "/" + standard;
         }
     }
 
@@ -546,7 +570,10 @@ namespace HKDownloader
             if (String.IsNullOrEmpty(language)) language = "auto";
             folder.Text = String.IsNullOrWhiteSpace(settings.Folder) ? DefaultDownloads() : settings.Folder;
             audio.IsChecked = settings.Audio; video.IsChecked = !settings.Audio; playlist.IsChecked = settings.Playlist;
-            SelectTag(quality, settings.Height.ToString(CultureInfo.InvariantCulture));
+            // Older or manually edited preferences must not select a locked quality.
+            int safeHeight = PremiumAccess.IsPremiumQuality(settings.Height) && !PremiumAccess.IsVerified
+                ? 2160 : settings.Height;
+            SelectTag(quality, safeHeight.ToString(CultureInfo.InvariantCulture));
             SelectTag(bitrate, settings.Bitrate ?? "320K");
             cleanSource.IsChecked = settings.PreferCleanVideo;
             SelectTag(trimEnding, new[] { 0, 1, 2, 3, 5 }.Contains(settings.TrimEndingSeconds) ? settings.TrimEndingSeconds.ToString(CultureInfo.InvariantCulture) : "0");
@@ -595,6 +622,9 @@ namespace HKDownloader
             ButtonText(appUpdate, "appUpdateCheck");
             ButtonText(Get<Button>("NavAboutButton"), "navAbout");
             Text("AutoUpdateLabel", "appAutoCheck");
+            ((ComboBoxItem)quality.Items[4]).Content = Loc.T("premium8K");
+            ((ComboBoxItem)quality.Items[5]).Content = Loc.T("premiumBest");
+            Text("PremiumQualityNote", "premiumQualityNote");
             video.Content = Loc.T("video"); audio.Content = Loc.T("audio");
             playlist.Content = Loc.T("playlist"); expander.Header = Loc.T("log");
             ((ComboBoxItem)languageBox.Items[0]).Content = Loc.T("auto");
@@ -614,6 +644,7 @@ namespace HKDownloader
             quality.Visibility = isAudio ? Visibility.Collapsed : Visibility.Visible;
             bitrate.Visibility = isAudio ? Visibility.Visible : Visibility.Collapsed;
             hint.Text = Loc.T(isAudio ? "qualityAudio" : "qualityVideo");
+            Get<TextBlock>("PremiumQualityNote").Visibility = isAudio ? Visibility.Collapsed : Visibility.Visible;
             Get<StackPanel>("ShortVideoOptions").Visibility =
                 !isAudio && (platform == "tiktok" || platform == "instagram")
                 ? Visibility.Visible : Visibility.Collapsed;

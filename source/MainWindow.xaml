@@ -162,6 +162,8 @@
             <ComboBox x:Name="QualityBox" Grid.Column="2" AutomationProperties.Name="Video quality" SelectedIndex="1" VerticalAlignment="Stretch">
               <ComboBoxItem Content="720p · HD" Tag="720"/><ComboBoxItem Content="1080p · Full HD" Tag="1080"/>
               <ComboBoxItem Content="1440p · 2K" Tag="1440"/><ComboBoxItem Content="2160p · 4K" Tag="2160"/>
+              <ComboBoxItem Content="4320p · 8K · PREMIUM" Tag="4320" IsEnabled="False" ToolTip="Premium access is not yet available"/>
+              <ComboBoxItem Content="Best available · PREMIUM" Tag="0" IsEnabled="False" ToolTip="No resolution cap; Premium access is not yet available"/>
             </ComboBox>
             <ComboBox x:Name="AudioQualityBox" Grid.Column="2" AutomationProperties.Name="Audio quality" SelectedIndex="0" Visibility="Collapsed">
               <ComboBoxItem Content="320 kbps" Tag="320K"/><ComboBoxItem Content="256 kbps" Tag="256K"/>
@@ -169,6 +171,7 @@
             </ComboBox>
           </Grid>
           <TextBlock x:Name="QualityHint" Text="Best available quality up to the selected limit." Foreground="{DynamicResource MutedBrush}" FontSize="12" Margin="0,10,0,0"/>
+           <TextBlock x:Name="PremiumQualityNote" Text="Free: up to 4K. Premium: 8K and unlimited quality (coming soon)." Foreground="{DynamicResource MutedBrush}" FontSize="11" Margin="0,5,0,0" TextWrapping="Wrap"/>
           <StackPanel x:Name="PlaylistPanel">
             <Border Height="1" Background="{DynamicResource BorderBrushApp}" Margin="0,15,0,13"/>
             <CheckBox x:Name="PlaylistBox" Content="Download the complete playlist" IsChecked="True" Foreground="{DynamicResource TextBrush}" FontWeight="SemiBold" VerticalContentAlignment="Center"/>

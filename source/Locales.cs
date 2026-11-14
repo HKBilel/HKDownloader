@@ -9,6 +9,10 @@ namespace HKDownloader
         static readonly Dictionary<string, Dictionary<string, string>> Data = new Dictionary<string, Dictionary<string, string>>(StringComparer.OrdinalIgnoreCase)
         {
             {"en", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "Best available · PREMIUM"},
+                {"premiumQualityNote", "Free: up to 4K. Premium: 8K and best available (no limit). Premium activation coming soon."},
+                {"premiumRequired", "8K and unlimited quality require verified Premium access. Patreon activation is not available yet."},
                 {"toolIntegrityFail", "Tool integrity check failed. The tools will be repaired before use."},
                 {"allSupportedSites", "View all sites supported by yt-dlp ↗"},
                 {"openSupportedSitesFailed", "Could not open the supported sites list."},
@@ -148,6 +152,10 @@ namespace HKDownloader
                 {"platformInvalid", "The URL does not belong to the selected platform."},
             }},
             {"es", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "Mejor disponible · PREMIUM"},
+                {"premiumQualityNote", "Gratis: hasta 4K. Premium: 8K y mejor disponible (sin límite). Activación próximamente."},
+                {"premiumRequired", "8K y calidad sin límite requieren acceso Premium verificado. La activación con Patreon aún no está disponible."},
                 {"toolIntegrityFail", "Falló la verificación de integridad de una herramienta. Se reparará antes de utilizarla."},
                 {"allSupportedSites", "Ver todas las plataformas de yt-dlp ↗"},
                 {"openSupportedSitesFailed", "No se pudo abrir la lista de plataformas."},
@@ -287,6 +295,10 @@ namespace HKDownloader
                 {"platformInvalid", "La URL no pertenece a la plataforma seleccionada."},
             }},
             {"fr", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "Meilleure qualité · PREMIUM"},
+                {"premiumQualityNote", "Gratuit : jusqu'à 4K. Premium : 8K et qualité maximale sans limite. Activation prochainement."},
+                {"premiumRequired", "La 8K et la qualité sans limite nécessitent un accès Premium vérifié. L'activation Patreon n'est pas encore disponible."},
                 {"toolIntegrityFail", "La vérification de l’intégrité d’un outil a échoué. Il sera réparé avant utilisation."},
                 {"allSupportedSites", "Voir tous les sites pris en charge par yt-dlp ↗"},
                 {"openSupportedSitesFailed", "Impossible d'ouvrir la liste des sites pris en charge."},
@@ -426,6 +438,10 @@ namespace HKDownloader
                 {"platformInvalid", "Ce lien ne correspond pas à la plateforme sélectionnée."},
             }},
             {"de", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "Beste verfügbare · PREMIUM"},
+                {"premiumQualityNote", "Kostenlos: bis 4K. Premium: 8K und beste verfügbare Qualität ohne Limit. Aktivierung folgt."},
+                {"premiumRequired", "8K und unbegrenzte Qualität erfordern verifizierten Premium-Zugang. Patreon-Aktivierung ist noch nicht verfügbar."},
                 {"toolIntegrityFail", "Die Integritätsprüfung eines Tools ist fehlgeschlagen. Es wird vor der Nutzung repariert."},
                 {"allSupportedSites", "Alle von yt-dlp unterstützten Seiten ↗"},
                 {"openSupportedSitesFailed", "Die Liste der unterstützten Seiten konnte nicht geöffnet werden."},
@@ -565,6 +581,10 @@ namespace HKDownloader
                 {"platformInvalid", "Dieser Link gehört nicht zur gewählten Plattform."},
             }},
             {"pt", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "Melhor disponível · PREMIUM"},
+                {"premiumQualityNote", "Grátis: até 4K. Premium: 8K e melhor qualidade sem limite. Ativação em breve."},
+                {"premiumRequired", "8K e qualidade sem limite exigem acesso Premium verificado. A ativação do Patreon ainda não está disponível."},
                 {"toolIntegrityFail", "A verificação de integridade de uma ferramenta falhou. Será reparada antes do uso."},
                 {"allSupportedSites", "Ver todos os sites suportados pelo yt-dlp ↗"},
                 {"openSupportedSitesFailed", "Não foi possível abrir a lista de sites suportados."},
@@ -704,6 +724,10 @@ namespace HKDownloader
                 {"platformInvalid", "O link não pertence à plataforma selecionada."},
             }},
             {"it", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "Migliore disponibile · PREMIUM"},
+                {"premiumQualityNote", "Gratis: fino a 4K. Premium: 8K e migliore qualità senza limiti. Attivazione in arrivo."},
+                {"premiumRequired", "8K e qualità senza limiti richiedono Premium verificato. L'attivazione Patreon non è ancora disponibile."},
                 {"toolIntegrityFail", "La verifica di integrità di uno strumento non è riuscita. Verrà ripristinato prima dell’uso."},
                 {"allSupportedSites", "Vedi tutti i siti supportati da yt-dlp ↗"},
                 {"openSupportedSitesFailed", "Impossibile aprire l'elenco dei siti supportati."},
@@ -843,6 +867,10 @@ namespace HKDownloader
                 {"platformInvalid", "Il link non appartiene alla piattaforma selezionata."},
             }},
             {"ar", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "أفضل جودة متاحة · PREMIUM"},
+                {"premiumQualityNote", "المجاني: حتى 4K. بريميوم: 8K وأعلى جودة دون حد. التفعيل قريبًا."},
+                {"premiumRequired", "تتطلب جودة 8K والجودة غير المحدودة عضوية بريميوم موثّقة. تفعيل Patreon غير متاح بعد."},
                 {"toolIntegrityFail", "فشل التحقق من سلامة إحدى الأدوات. ستتم إعادة تثبيتها قبل الاستخدام."},
                 {"allSupportedSites", "عرض جميع المواقع المدعومة من yt-dlp ↗"},
                 {"openSupportedSitesFailed", "تعذر فتح قائمة المواقع المدعومة."},
@@ -981,6 +1009,10 @@ namespace HKDownloader
                 {"platformInvalid", "الرابط لا يتبع المنصة المحددة."},
             }},
             {"ja", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "最高画質 · PREMIUM"},
+                {"premiumQualityNote", "無料版は最大4K。Premiumでは8Kと上限なしの最高画質に対応予定です。認証機能は準備中です。"},
+                {"premiumRequired", "8Kと解像度無制限には認証済みのPremium会員資格が必要です。Patreon認証はまだ利用できません。"},
                 {"toolIntegrityFail", "ツールの整合性確認に失敗しました。使用前に再インストールします。"},
                 {"allSupportedSites", "yt-dlp の対応サイト一覧を見る ↗"},
                 {"openSupportedSitesFailed", "対応サイト一覧を開けませんでした。"},
@@ -1119,6 +1151,10 @@ namespace HKDownloader
                 {"platformInvalid", "選択したサービスの URL ではありません。"},
             }},
             {"zh", new Dictionary<string, string> {
+                {"premium8K", "4320p · 8K · PREMIUM"},
+                {"premiumBest", "最佳可用画质 · PREMIUM"},
+                {"premiumQualityNote", "免费版最高4K。Premium计划提供8K和无分辨率上限的最佳画质，验证功能即将推出。"},
+                {"premiumRequired", "8K和无限制画质需要已验证的Premium资格。Patreon验证功能尚未开放。"},
                 {"toolIntegrityFail", "工具完整性验证失败。使用前将重新安装该工具。"},
                 {"allSupportedSites", "查看 yt-dlp 支持的所有网站 ↗"},
                 {"openSupportedSitesFailed", "无法打开支持网站列表。"},

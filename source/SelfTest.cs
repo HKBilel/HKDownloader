@@ -96,6 +96,18 @@ namespace HKDownloader
                     "Short-video clean-source option loads");
                 Assert(view.FindName("TrimEndingBox") is System.Windows.Controls.ComboBox,
                     "Optional ending trim control loads");
+                var qbox = (System.Windows.Controls.ComboBox)view.FindName("QualityBox");
+                Assert(qbox.Items.Count == 6 &&
+                    Convert.ToString(((System.Windows.Controls.ComboBoxItem)qbox.Items[3]).Tag) == "2160",
+                    "Free quality selection offers a 4K ceiling");
+                Assert(!((System.Windows.Controls.ComboBoxItem)qbox.Items[4]).IsEnabled &&
+                    Convert.ToString(((System.Windows.Controls.ComboBoxItem)qbox.Items[4]).Tag) == "4320",
+                    "Premium 8K option is shown but disabled until membership verification");
+                Assert(!((System.Windows.Controls.ComboBoxItem)qbox.Items[5]).IsEnabled &&
+                    Convert.ToString(((System.Windows.Controls.ComboBoxItem)qbox.Items[5]).Tag) == "0",
+                    "Premium uncapped best available is disabled until membership verification");
+                Assert(view.FindName("PremiumQualityNote") is System.Windows.Controls.TextBlock,
+                    "Free/Premium quality explanation visible");
                 Assert(view.FindName("PoweredByText") is System.Windows.Controls.TextBlock,
                     "yt-dlp attribution control loads");
                 Assert(view.FindName("PlatformDescription") is System.Windows.Controls.TextBlock,
@@ -335,6 +347,21 @@ namespace HKDownloader
             Assert(list.Contains("--no-overwrites") && list.Contains("--continue"), "Existing files protected and partial downloads resumable");
             Assert(list[list.Count-2] == "--", "URL separated from command options");
             Throws(() => Commands.Download(new Options {Height=999}, "https://example.com", temp), "Reject invalid height");
+            Assert(!PremiumAccess.IsVerified, "Premium entitlement fails closed until Patreon verification is implemented");
+            Throws(() => Commands.Download(new Options { Folder=temp, Height=4320 },
+                "https://example.com/video", temp), "Free engine refuses 8K even for edited settings");
+            Throws(() => Commands.Download(new Options { Folder=temp, Height=0 },
+                "https://example.com/video", temp), "Free engine refuses unlimited quality even for edited settings");
+            string ultraFormat = Commands.VideoFormatSelector(4320, false);
+            Assert(ultraFormat == "bv*[height<=4320]+ba/b[height<=4320]",
+                "Future Premium 8K selector caps both video branches at 4320p");
+            string unlimitedFormat = Commands.VideoFormatSelector(0, false);
+            Assert(unlimitedFormat == "bv*+ba/b" && !unlimitedFormat.Contains("height<="),
+                "Future Premium best quality selector has no artificial resolution limit");
+            string cleanUnlimited = Commands.VideoFormatSelector(0, true);
+            Assert(cleanUnlimited.Contains("format_note!*=") && cleanUnlimited.EndsWith(unlimitedFormat),
+                "Future Premium watermark preference keeps ordinary unlimited fallback");
+            Throws(() => Commands.VideoFormatSelector(9999, false), "Unsupported resolution never accepted");
             string[] tricky = { "", "plain", "con espacios", "C:\\ruta con espacios\\", "quoted \"name\"", "& | ; $(x) `name`", "Melilla · vídeo 日本語", "tail\\\\", "\\\"" };
             var lines = new List<string>();
             int exit = await Runner.Run(Process.GetCurrentProcess().MainModule.FileName, new[] {"--fixture-echo"}.Concat(tricky), temp, s => { lock(lines) lines.Add(s); }, CancellationToken.None);
