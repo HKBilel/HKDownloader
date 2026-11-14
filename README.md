@@ -18,7 +18,7 @@ An internet connection is required. On first use, HKDownloader may download the 
 - **One universal download view:** Paste any supported URL; HKDownloader identifies the platform automatically and organizes downloads into platform folders. Unknown hosts are passed to yt-dlp with neutral HK branding.
 - **TikTok & Instagram:** Optional preference for unwatermarked formats where the site supplies one. This cannot remove logos already embedded in the video and is not guaranteed to work for every link.
 - **Manual end-card trim:** Optionally create an additional MP4 with the last 1, 2, 3 or 5 seconds removed. The original video is always preserved. **This does not automatically detect a platform ending screen**, and choosing too many seconds can remove real content.
-- **Windows executable icon:** The same graphite HK logo remains unchanged; only the in-app branding adapts to the detected platform.
+- **Windows executable icon:** The yellow HK app icon is used in Windows Explorer and on the taskbar. Inside the app, the header and sidebar logos adapt to the detected platform.
 
 - **Sidebar:** Language selector with a globe icon, appearance control directly below it, automatic update preference and the official [list of yt-dlp supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
 - **Dropdown menus:** Clear selection, hover and open-state styling for language, appearance, video quality and trimming options.
@@ -34,9 +34,7 @@ Official release builds are compiled and tested automatically on Windows. Downlo
 
 ## Support the project
 
-HKDownloader is a free project. If you enjoy using it and would like to support its ongoing development, voluntary contributions will be available here in the future.
-
-**Patreon:** Coming soon · **Ko-fi:** Coming soon
+HKDownloader is free to use. If you enjoy the project and want to support its development, you can join [HKDownloader on Patreon](https://patreon.com/HKBilel).
 
 ## Report an issue
 
@@ -46,7 +44,7 @@ Please include your Windows and HKDownloader versions, steps to reproduce the pr
 
 ## Build from source
 
-On Windows x64 with the .NET Framework 4.8 compiler available, run `Build-HKDownloader.cmd`, then open `HKDownloader.exe`. The original logo is stored in `source/Branding/HKDownloader.svg`; the Windows build generates the executable icon and the six platform variants locally.
+On Windows x64 with the .NET Framework 4.8 compiler available, run `Build-HKDownloader.cmd`, then open `HKDownloader.exe`. The Windows icon and taskbar artwork comes from `source/Branding/HKDownloader-AppIcon.svg`, while `source/Branding/HKDownloader.svg` supplies the platform-dependent logos shown within the interface. Windows builds render the ICO and PNG assets from these SVG files locally.
 
 You can run automated integration checks with `HKDownloader.exe --self-test`. The Windows build workflow also runs these tests. Live downloads may still fail if a platform changes its service or restricts particular content.
 
