@@ -63,7 +63,7 @@ internal static class LogoGenerator
         }
 
         // Optional platform variation: modify only CSS colors, never the vector paths.
-        // The three-argument build keeps the exact user-supplied graphite icon.
+        // The three-argument build keeps the SVG's original colors, including the separate yellow app icon.
         if (backgroundHex != null || foregroundHex != null)
         {
             if (backgroundHex == null || foregroundHex == null ||
@@ -117,8 +117,8 @@ internal static class LogoGenerator
             brush.Freeze();
             shapes.Add(new Shape { Geometry = geometry, Brush = brush });
         }
-        if (shapes.Count != 4)
-            throw new InvalidDataException("Expected visible SVG background and three foreground paths; got " + shapes.Count);
+        if (shapes.Count < 4)
+            throw new InvalidDataException("Expected at least four visible SVG shapes; got " + shapes.Count);
 
         int[] sizes = { 16, 24, 32, 48, 64, 128, 256 };
         var frames = new List<byte[]>();
