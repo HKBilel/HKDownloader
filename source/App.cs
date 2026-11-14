@@ -215,8 +215,8 @@ namespace HKDownloader
             string cap = height == 0 ? "" : "[height<=" + height.ToString(CultureInfo.InvariantCulture) + "]";
             string standard = "bv*" + cap + "+ba/b" + cap;
             if (!preferClean) return standard;
-            string clean = "bv*" + cap + "[format_note!*=\\"watermarked\\"]+ba"
-                + "/b" + cap + "[format_note!*=\\"watermarked\\"]";
+            string clean = "bv*" + cap + "[format_note!*=\"watermarked\"]+ba"
+                + "/b" + cap + "[format_note!*=\"watermarked\"]";
             return clean + "/" + standard;
         }
     }
