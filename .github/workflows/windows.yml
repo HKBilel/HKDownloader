@@ -1,0 +1,78 @@
+name: Windows build and release
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Build Windows executable
+        shell: pwsh
+        run: .\source\build.ps1
+      - name: Run integration tests
+        shell: pwsh
+        run: |
+          # A Windows GUI executable does not reliably set PowerShell's LASTEXITCODE.
+          $report = Join-Path $PWD 'self-test-report.txt'
+          Remove-Item -LiteralPath $report -ErrorAction SilentlyContinue
+          $app = (Resolve-Path '.\HKDownloader.exe').Path
+          $process = Start-Process -FilePath $app -ArgumentList '--self-test' -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw "Self-tests failed: exit code $($process.ExitCode)" }
+          if (-not (Test-Path -LiteralPath $report)) { throw 'Self-test report was not created.' }
+          if (-not (Select-String -LiteralPath $report -Pattern '^ALL TESTS PASSED$' -Quiet)) {
+            throw 'Self-test report does not contain success marker.'
+          }
+      - name: Print self-test report if validation fails
+        if: failure()
+        shell: pwsh
+        run: |
+          if (Test-Path 'self-test-report.txt') { Get-Content 'self-test-report.txt' }
+      - name: Upload Windows build
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: HKDownloader-Windows-x64
+          path: HKDownloader.exe
+          if-no-files-found: error
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: windows-2022
+    permissions:
+      contents: write
+    steps:
+      - name: Download verified build artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: HKDownloader-Windows-x64
+          path: release
+      - name: Create SHA-256 checksum
+        shell: pwsh
+        run: |
+          $hash = (Get-FileHash -Algorithm SHA256 release/HKDownloader.exe).Hash.ToLowerInvariant()
+          "$hash  HKDownloader.exe" | Set-Content -Encoding ascii release/HKDownloader.exe.sha256
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3
+        with:
+          name: HKDownloader ${{ github.ref_name }} — Universal Downloader
+          make_latest: true
+          files: |
+            release/HKDownloader.exe
+            release/HKDownloader.exe.sha256
+          body: |
+            HKDownloader for Windows 10/11 x64.
+
+            **Features:** One universal downloader with automatic platform detection, dynamic brand colors, optional clean-source preference and manual ending trim for TikTok/Instagram, streamlined sidebar and improved menus.
+
+            **Install:** Download `HKDownloader.exe` from Assets below and run it.
+
+            Supports YouTube, Twitch, Kick, Instagram, TikTok and Facebook, plus other compatible sites. Powered by yt-dlp.
+
+            **Note:** Watermark-free sources are not guaranteed; manually trimming an ending keeps the original video. See [README](https://github.com/HKBilel/HKDownloader#readme) for full notices.
+          fail_on_unmatched_files: true
