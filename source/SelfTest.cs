@@ -68,7 +68,7 @@ namespace HKDownloader
                 var view = System.Windows.Markup.XamlReader.Load(resource) as System.Windows.Window;
                 Assert(view != null, "WPF main window can be parsed and constructed");
                 Branding.Apply(view);
-                // Detect accidental recoloring: sample an opaque background pixel above HK.
+                // The taskbar icon uses the yellow artwork, independent of the in-app platform logos.
                 var icon = view.Icon as System.Windows.Media.Imaging.BitmapSource;
                 Assert(icon != null, "Branded window icon is a bitmap");
                 var converted = new System.Windows.Media.Imaging.FormatConvertedBitmap(
@@ -77,8 +77,8 @@ namespace HKDownloader
                 var sample = new System.Windows.Media.Imaging.CroppedBitmap(
                     converted, new System.Windows.Int32Rect(converted.PixelWidth / 2, converted.PixelHeight / 16, 1, 1));
                 sample.CopyPixels(pixel, 4, 0);
-                Assert(pixel[0] == 0x30 && pixel[1] == 0x30 && pixel[2] == 0x30 && pixel[3] == 0xFF,
-                    "Logo uses the designer's exact solid graphite #303030 background");
+                Assert(pixel[0] == 0x15 && pixel[1] == 0xD6 && pixel[2] == 0xFE && pixel[3] == 0xFF,
+                    "Windows app icon uses the supplied solid yellow #FED615 artwork");
                 var sidebarLogo = view.FindName("SidebarLogo") as System.Windows.Controls.Image;
                 var headerLogo = view.FindName("HeaderLogo") as System.Windows.Controls.Image;
                 Assert(view.Icon != null, "Window and taskbar have embedded branded titlebar icon");
@@ -147,8 +147,8 @@ namespace HKDownloader
                 var desc = (System.Windows.Controls.TextBlock)view.FindName("PlatformDescription");
                 Assert(!String.IsNullOrWhiteSpace(desc.Text) && desc.Text != "platformYT",
                     "Controller initializes the visible platform description");
-                Assert(LogoBackground(view.Icon) == "#303030",
-                    "Window icon stays graphite despite platform changes");
+                Assert(LogoBackground(view.Icon) == "#FED615",
+                    "Window icon uses yellow artwork regardless of platform");
                 var logoChecks = new[] {
                     new[] { "https://www.youtube.com/watch?v=abc", "#FF0000", "YouTube" },
                     new[] { "https://www.twitch.tv/videos/123456789", "#9146FF", "Twitch" },
@@ -178,7 +178,7 @@ namespace HKDownloader
                 Assert(LogoBackground(headerLogo.Source) == "#303030",
                     "Unknown supported site displays neutral graphite brand");
                 Assert(Object.ReferenceEquals(view.Icon, icon),
-                    "EXE icon remains graphite when website is unknown");
+                    "EXE icon remains the yellow app artwork when website is unknown");
                 url.Text = "";
                 view.Close();
             }
