@@ -938,13 +938,13 @@ namespace HKDownloader
     }
 
 
-    // The neutral graphite HK branding is fixed for the executable and taskbar.
-    // Rendered from the designer's SVG during the Windows build; no external file is required.
+    // The executable and taskbar use the supplied yellow HK icon.
+    // The in-app platform logos remain independent and dynamically colored.
     public static class Branding
     {
-        // Each image is generated at build time from the user's exact vector SVG.
-        // Only the two on-screen logos use the platform colors; the window/taskbar
-        // icon and PE executable icon always keep the original graphite artwork.
+        // Each logo is rendered at build time from the supplied SVG artwork.
+        // The sidebar/header logos use platform accents, but the Windows titlebar,
+        // taskbar and executable keep the yellow HK app icon across all sites.
         private static readonly Dictionary<string, BitmapFrame> cache =
             new Dictionary<string, BitmapFrame>(StringComparer.OrdinalIgnoreCase);
 
@@ -976,7 +976,7 @@ namespace HKDownloader
         public static void Apply(Window window)
         {
             var neutral = LoadLogo("HKDownloader.Logo.png");
-            window.Icon = neutral;
+            window.Icon = LoadLogo("HKDownloader.AppIcon.png");
             SetImages(window, neutral);
         }
 
