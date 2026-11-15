@@ -1,5 +1,13 @@
 # HKDownloader
 
+[![Latest Release](https://img.shields.io/github/v/release/HKBilel/HKDownloader?label=Latest%20Release&color=2ea44f)](https://github.com/HKBilel/HKDownloader/releases/latest)
+[![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6)](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0)
+[![Architecture](https://img.shields.io/badge/Architecture-x64-555555)](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0)
+[![Free](https://img.shields.io/badge/Free%20to%20use-100%25-2e7d32)](EULA.md)
+[![Licence](https://img.shields.io/badge/Licence-Proprietary-555555)](EULA.md)
+[![yt-dlp](https://img.shields.io/badge/Powered%20by-yt--dlp-24292f)](https://github.com/yt-dlp/yt-dlp)
+[![Patreon](https://img.shields.io/badge/Support%20HKDownloader-Patreon-FF424D?logo=patreon&logoColor=white)](https://www.patreon.com/cw/HKBilel/membership)
+
 **Free Windows desktop downloader for video, audio and playlists.**
 
 HKDownloader is a free-to-use desktop application by **HKCorp**, powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp). It features a clean, monochrome glass-inspired interface, light and dark themes, and nine interface languages.
@@ -71,18 +79,24 @@ Available sites, formats, resolutions and watermark-free sources depend on the p
 
 A persistent download history, multi-item download queue and simultaneous downloads of **different videos** are **not included** in v1.0.0. Up to four parallel fragments may be used for compatible formats; this is not the same as multiple concurrent videos.
 
+## Support HKDownloader on Patreon ❤️
+
+HKDownloader is **100% free**, with no premium tiers or paid features. If you enjoy the application and would like to support its continued development, you can [**support HKCorp on Patreon**](https://www.patreon.com/cw/HKBilel/membership).
+
+Donations are **completely optional**. No account, subscription or Patreon membership is required to use HKDownloader.
+
 ## Updates and support
 
 HKDownloader checks the [official GitHub releases](https://github.com/HKBilel/HKDownloader/releases) for application updates and can check/download supported external tools. Get new builds only from the official repository.
 
-HKDownloader is completely free. If you wish to support continued development, [optional donations through Patreon](https://www.patreon.com/cw/HKBilel/membership) are welcome and **do not unlock any extra features**.
-
-## Licence and acknowledgements
+## Licence, terms and third-party acknowledgements
 
 **Copyright © 2026 HKCorp. All rights reserved.**
 
-HKDownloader is **free-to-use proprietary software**, not open source. The source code is not distributed in this public repository. See the [End User Licence](EULA.md) for usage terms.
+HKDownloader is **free-to-use proprietary software**, not open source. The source code is not distributed in this public repository. The [End User Licence (EULA)](EULA.md) sets out the **terms and conditions of use**, including permission to use the application and applicable restrictions.
 
-HKDownloader uses independent tools under their own licences: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org/) and [Deno](https://deno.com/). See [Third-Party Notices](THIRD_PARTY_NOTICES.md).
+HKDownloader uses independent tools under their own licences: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org/) and [Deno](https://deno.com/). See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for their separate licences and acknowledgements.
+
+[Terms & Conditions (EULA)](EULA.md) · [Privacy & Security](SECURITY.md) · [Third-Party Notices](THIRD_PARTY_NOTICES.md)
 
 [Release notes](RELEASE_NOTES-v1.0.0.md) · [Changelog](CHANGELOG.md) · [Official v1.0.0 release](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0)
