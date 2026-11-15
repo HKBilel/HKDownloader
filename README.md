@@ -91,14 +91,14 @@ HKDownloader checks the [official GitHub releases](https://github.com/HKBilel/HK
 
 ## Licence, terms and third-party acknowledgements
 
-HKDownloader is **independently developed and distributed under the HKCorp name**.
+HKDownloader is independently developed and published by **HKBilel** under the **HKCorp project name**. HKCorp is the project name, not a claim that a company or trademark has been registered.
 
-HKDownloader is **free-to-use software distributed under an End User Licence (EULA)**, rather than an open-source licence. The source code is not published in this repository. The [EULA](EULA.md) explains the **terms and conditions of use**, including free use, permitted activities and restrictions.
+HKDownloader is **free to use** for personal and business purposes under its [simple end-user terms](EULA.md). It is not released under an open-source licence, and the application source code is not published in this repository. No subscription, registration or Patreon membership is needed to use the application.
 
-Any rights reserved in original HKDownloader materials apply **only where those rights exist and are held by the publisher**. Third-party software and assets retain their own rights and licences.
+**© 2026 HKBilel.** Rights are reserved only in original HKDownloader materials where they exist and are held by the developer. Third-party software and assets retain their own rights and licences.
 
 HKDownloader uses independent tools under their own licences: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org/) and [Deno](https://deno.com/). See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for their separate licences and acknowledgements.
 
-[Terms & Conditions (EULA)](EULA.md) · [Privacy & Security](SECURITY.md) · [Third-Party Notices](THIRD_PARTY_NOTICES.md)
+[Free End User Terms](EULA.md) · [Privacy & Security](SECURITY.md) · [Third-Party Notices](THIRD_PARTY_NOTICES.md)
 
 [Release notes](RELEASE_NOTES-v1.0.0.md) · [Changelog](CHANGELOG.md) · [Official v1.0.0 release](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0)
