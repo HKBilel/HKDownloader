@@ -78,9 +78,9 @@ If you find it useful and would like to help me continue improving it, you can [
 
 ## 📄 Licence and Terms of Use
 
-HKDownloader is **free to use under its End User Licence (EULA)**. It is independently developed and released under the **HKCorp** name. The EULA covers original project materials only to the extent that the publisher holds the applicable rights. Third-party components retain their separate rights and licences.
+HKDownloader is **free to use under its simple end-user terms**. It is published independently by **HKBilel** under the **HKCorp** project name, without implying that HKCorp is a registered company or trademark. Rights are reserved only in original materials to the extent held by the developer. Third-party components retain their own rights and licences.
 
-Read the [End User Licence (EULA)](https://github.com/HKBilel/HKDownloader/blob/main/EULA.md) for the terms and conditions of use, the [Privacy & Security information](https://github.com/HKBilel/HKDownloader/blob/main/SECURITY.md), and the [Third-Party Notices](https://github.com/HKBilel/HKDownloader/blob/main/THIRD_PARTY_NOTICES.md).
+Read the [Free End User Terms](https://github.com/HKBilel/HKDownloader/blob/main/EULA.md) for the terms and conditions of use, the [Privacy & Security information](https://github.com/HKBilel/HKDownloader/blob/main/SECURITY.md), and the [Third-Party Notices](https://github.com/HKBilel/HKDownloader/blob/main/THIRD_PARTY_NOTICES.md).
 
 ---
 
