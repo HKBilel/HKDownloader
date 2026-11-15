@@ -91,9 +91,11 @@ HKDownloader checks the [official GitHub releases](https://github.com/HKBilel/HK
 
 ## Licence, terms and third-party acknowledgements
 
-**Copyright © 2026 HKCorp. All rights reserved.**
+HKDownloader is **independently developed and distributed under the HKCorp name**.
 
-HKDownloader is **free-to-use proprietary software**, not open source. The source code is not distributed in this public repository. The [End User Licence (EULA)](EULA.md) sets out the **terms and conditions of use**, including permission to use the application and applicable restrictions.
+HKDownloader is **free-to-use software distributed under an End User Licence (EULA)**, rather than an open-source licence. The source code is not published in this repository. The [EULA](EULA.md) explains the **terms and conditions of use**, including free use, permitted activities and restrictions.
+
+Any rights reserved in original HKDownloader materials apply **only where those rights exist and are held by the publisher**. Third-party software and assets retain their own rights and licences.
 
 HKDownloader uses independent tools under their own licences: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org/) and [Deno](https://deno.com/). See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for their separate licences and acknowledgements.
 
