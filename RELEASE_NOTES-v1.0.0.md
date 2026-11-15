@@ -1,44 +1,93 @@
-# HKDownloader v1.0.0 — Windows x64
 
-HKDownloader is a **completely free**, multilingual desktop downloader by **HKCorp**.
+<img width="1920" height="1019" alt="image of the HKDownloader program" src="https://github.com/user-attachments/assets/0f73cc30-2613-459f-8e07-a9f95f6610f0" />
 
-**[Download HKDownloader v1.0.0](https://github.com/HKBilel/HKDownloader/releases/download/v1.0.0/HKDownloader-Windows-x64-v1.0.0.zip)** · [Official release page](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0)
+# HKDownloader v1.0.0 — First Stable Release 🚀
 
-## Highlights
+I’m pleased to release **HKDownloader 1.0.0**, the first stable version of my free, multilingual video and audio downloader for Windows.
 
-- MP4 video, MP3 audio and playlist downloads where supported by yt-dlp.
-- Best available quality by default, with no paid features.
-- Optional access to an authorised browser session, only with user permission.
-- Monochrome Desktop Acrylic-inspired interface with light/dark themes and nine languages.
-- Optional Patreon support (no login or premium entitlement required).
-- First-run welcome dialog to help install yt-dlp, FFmpeg and Deno.
+I develop and maintain HKDownloader independently under the **HKCorp** name. It combines a clean, modern interface with powerful downloading capabilities powered by yt-dlp.
 
-## Installation
+**100% Free. No subscriptions. No premium features. No paywalls.**
 
-1. Download **`HKDownloader-Windows-x64-v1.0.0.zip`** from [Release assets](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0).
-2. Extract the ZIP to a folder where you have write access.
-3. Run **`HKDownloader.exe`**.
-4. When the first-run dialog appears, choose **Install tools** to obtain yt-dlp, FFmpeg and Deno, or **Later** to postpone installation.
+## ✨ Key Features
 
-**Requirements:** Windows 10/11 x64, Microsoft .NET Framework 4.8 and an internet connection for downloads and tool installation.
+- **Video Downloads:** Download videos in MP4 format from supported websites.
+- **Audio Downloads:** Extract and download audio in MP3 format.
+- **Best Available Quality:** Automatically select the best available quality, with additional quality options.
+- **Playlist Support:** Download playlists when supported by the source.
+- **Browser Session Support:** Optionally access authorised browser sessions for content that requires authentication.
+- **Modern Interface:** Monochrome design with a translucent Desktop Acrylic-inspired appearance.
+- **Light & Dark Themes:** Choose your preferred appearance.
+- **9 Languages:** English, Spanish, French, German, Portuguese, Italian, Arabic, Japanese and Chinese.
+- **Automatic Tool Management:** Install and update required downloading tools through the application.
+- **Update Notifications:** Check for new versions of HKDownloader and its tools.
+- **Accessible Design:** Improved keyboard navigation, responsive layout and accessibility support.
 
-> Download the application ZIP from the **Assets** list. GitHub's automatic **Source code** ZIP and tar.gz contain only this public documentation repository, not the application.
+## 📥 Installation
 
-## Checksums
+1. Download `HKDownloader-Windows-x64-v1.0.0.zip` from the Assets section below.
+2. Extract the ZIP file to a folder of your choice.
+3. Run `HKDownloader.exe`.
+4. On first launch, HKDownloader will offer to install the required downloading tools.
+5. Once the tools are installed, you're ready to start downloading!
 
-- [HKDownloader-Windows-x64-v1.0.0.zip.sha256](https://github.com/HKBilel/HKDownloader/releases/download/v1.0.0/HKDownloader-Windows-x64-v1.0.0.zip.sha256)
-- [HKDownloader.exe.sha256](https://github.com/HKBilel/HKDownloader/releases/download/v1.0.0/HKDownloader.exe.sha256)
+**No traditional installer required.**
 
-## Limitations and responsible use
+## 💻 System Requirements
 
-Availability, supported formats, quality and watermark-free sources vary by platform and yt-dlp support. Access-restricted media requires existing permission. Persistent history, a multi-item queue and concurrent downloads of different videos are not included in v1.0.0.
+- Windows 10 or Windows 11 (64-bit).
+- Microsoft .NET Framework 4.8.
+- Internet connection for downloading content, installing tools and checking for updates.
 
-Download only media you are authorised to access, in accordance with applicable rules and website terms.
+## 🌍 Supported Languages
 
-## Licence and support
+🇬🇧 English · 🇪🇸 Español · 🇫🇷 Français · 🇩🇪 Deutsch · 🇵🇹 Português · 🇮🇹 Italiano · 🇸🇦 العربية · 🇯🇵 日本語 · 🇨🇳 中文
 
-HKDownloader is free-to-use proprietary software. See the [EULA](EULA.md) and [Third-Party Notices](THIRD_PARTY_NOTICES.md).
+## 🛠️ Technologies
 
-**Official project:** https://github.com/HKBilel/HKDownloader
+HKDownloader uses the following external tools:
 
-**Support:** [GitHub Issues](https://github.com/HKBilel/HKDownloader/issues) · [Optional Patreon](https://www.patreon.com/cw/HKBilel/membership)
+- **yt-dlp** — Video and audio extraction.
+- **FFmpeg** — Multimedia processing and format conversion.
+- **Deno** — JavaScript runtime used for supported extraction workflows.
+
+These tools are obtained separately when required.
+
+## 🔐 Security & Privacy
+
+HKDownloader does not require an account or subscription.
+
+Browser session access is optional and should only be used with accounts and content you are authorised to access.
+
+SHA-256 checksum files are provided to help verify download integrity.
+
+## ⚠️ Known Limitations
+
+- Available formats, resolutions and download capabilities depend on the source website and yt-dlp compatibility.
+- Some websites may restrict downloads or require authentication.
+- Persistent download history, download queues and simultaneous downloads of different videos are not included in this release.
+- Download content only when you have permission to do so.
+
+## ❤️ Support Independent Development
+
+I develop HKDownloader independently and keep it **100% free**, without subscriptions, premium features or paid unlocks.
+
+If you find it useful and would like to help me continue improving it, you can [**support my work on Patreon**](https://www.patreon.com/cw/HKBilel/membership).
+
+**Donations are completely optional. All features remain free for everyone.**
+
+## 📄 Licence
+
+HKDownloader is free-to-use proprietary software.
+
+See the [End User Licence (EULA)](https://github.com/HKBilel/HKDownloader/blob/main/EULA.md) for terms and conditions of use, the [Privacy & Security information](https://github.com/HKBilel/HKDownloader/blob/main/SECURITY.md), and the [Third-Party Notices](https://github.com/HKBilel/HKDownloader/blob/main/THIRD_PARTY_NOTICES.md).
+
+---
+
+**Thank you for trying HKDownloader!**
+
+This is just the beginning. ❤️
+
+Independently developed under the **HKCorp** name.
+
+[GitHub Repository](https://github.com/HKBilel/HKDownloader) · [Report an Issue](https://github.com/HKBilel/HKDownloader/issues)
