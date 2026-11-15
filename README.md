@@ -10,7 +10,7 @@
 
 **Free Windows desktop downloader for video, audio and playlists.**
 
-HKDownloader is a free-to-use desktop application by **HKCorp**, powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp). It features a clean, monochrome glass-inspired interface, light and dark themes, and nine interface languages.
+I'm the independent developer behind **HKDownloader**, a free Windows desktop downloader released under the **HKCorp** name. Built around [yt-dlp](https://github.com/yt-dlp/yt-dlp), it combines video and audio downloading with a clean, monochrome glass-inspired interface, light and dark themes, and nine interface languages.
 
 **v1.0.0 Stable · Windows 10/11 x64 · 100% free · No subscriptions or premium tiers**
 
@@ -81,9 +81,9 @@ A persistent download history, multi-item download queue and simultaneous downlo
 
 ## Support HKDownloader on Patreon ❤️
 
-HKDownloader is **100% free**, with no premium tiers or paid features. If you enjoy the application and would like to support its continued development, you can [**support HKCorp on Patreon**](https://www.patreon.com/cw/HKBilel/membership).
+I develop and maintain HKDownloader independently and keep it **100% free**, without premium tiers or paid features. If you find the app useful and would like to help me continue improving it, you can [**support my work on Patreon**](https://www.patreon.com/cw/HKBilel/membership).
 
-Donations are **completely optional**. No account, subscription or Patreon membership is required to use HKDownloader.
+**Donations are completely optional.** They don't unlock any extra features, and you don't need a Patreon account or membership to use HKDownloader.
 
 ## Updates and support
 
