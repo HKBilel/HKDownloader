@@ -22,4 +22,4 @@ To the maximum extent permitted by applicable law, HKDownloader is provided with
 
 For official releases visit https://github.com/HKBilel/HKDownloader/releases.
 
-*Note: This draft is practical licensing text, not a substitute for legal review.*
+These terms describe the intended conditions for using HKDownloader and are subject to applicable law. For advice on their legal effect or enforceability, consult a qualified legal professional.
