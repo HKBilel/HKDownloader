@@ -1,18 +1,18 @@
 # HKDownloader — End User Licence (v1.0.0)
 
-**Copyright © 2026 HKCorp. All rights reserved.**
+HKDownloader is independently developed and distributed under the **HKCorp** project name.
 
-This licence concerns the original HKDownloader application and HKCorp's original materials only. Third-party components are subject to their own licences.
+This End User Licence (EULA) covers the original HKDownloader application and original project materials **only to the extent that the publisher holds the applicable rights**. It does not claim ownership of third-party tools, libraries, assets or other materials, which remain subject to their respective rights and licences.
 
 ## Permission to use
 
-HKCorp grants you a free, non-exclusive, revocable only where permitted by applicable law, non-transferable licence to download, install and use the unmodified HKDownloader application on your own Windows devices, including for personal and business use, subject to applicable law.
+The independent developer distributing HKDownloader under the HKCorp name grants, to the extent of the rights they hold, a free, non-exclusive, non-transferable licence to download, install and use the unmodified HKDownloader application on your own Windows devices, including for personal and business use, subject to applicable law.
 
 There is no payment, Patreon membership, or subscription requirement to use HKDownloader's available features.
 
 ## Restrictions
 
-Unless allowed by applicable law or you have obtained written permission from HKCorp, you may not redistribute modified builds of HKDownloader, sell or sublicense HKDownloader, or use its branding to imply endorsement. Rights to the source code, original user interface and original HKCorp artwork are reserved. Any mandatory rights relating to interoperability, reverse engineering or consumer protection remain unaffected.
+Unless allowed by applicable law or authorised by the relevant rights holder, you may not redistribute modified builds of the original HKDownloader application, sell or sublicense it, or use its branding to imply endorsement. Rights in original source code, the original interface and original artwork are reserved only where protected by law and held by the publisher. Mandatory rights concerning interoperability, reverse engineering and consumer protection remain unaffected.
 
 This permission does not grant rights to download content belonging to others or circumvent website access controls.
 
