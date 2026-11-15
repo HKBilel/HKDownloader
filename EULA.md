@@ -1,25 +1,29 @@
-# HKDownloader — End User Licence (v1.0.0)
+# HKDownloader — Free End User Terms (v1.0.0)
 
-HKDownloader is independently developed and distributed under the **HKCorp** project name.
+HKDownloader is a free Windows application published by **HKBilel**, an independent developer using **HKCorp** as a project name. The name HKCorp does not imply that a company or trademark has been registered.
 
-This End User Licence (EULA) covers the original HKDownloader application and original project materials **only to the extent that the publisher holds the applicable rights**. It does not claim ownership of third-party tools, libraries, assets or other materials, which remain subject to their respective rights and licences.
+## Free use
 
-## Permission to use
+You may download, install and use the unmodified official HKDownloader application at no cost, for personal or business purposes. No payment, account registration, Patreon membership or subscription is required.
 
-The independent developer distributing HKDownloader under the HKCorp name grants, to the extent of the rights they hold, a free, non-exclusive, non-transferable licence to download, install and use the unmodified HKDownloader application on your own Windows devices, including for personal and business use, subject to applicable law.
+## Original work and third-party components
 
-There is no payment, Patreon membership, or subscription requirement to use HKDownloader's available features.
+© 2026 HKBilel. Rights are reserved only in original HKDownloader materials to the extent that those rights exist and belong to the developer.
 
-## Restrictions
+HKDownloader uses independent tools, including yt-dlp, FFmpeg and Deno, under their own licences. Their code and other third-party content do not become the property of HKBilel or HKCorp. See [Third-Party Notices](THIRD_PARTY_NOTICES.md).
 
-Unless allowed by applicable law or authorised by the relevant rights holder, you may not redistribute modified builds of the original HKDownloader application, sell or sublicense it, or use its branding to imply endorsement. Rights in original source code, the original interface and original artwork are reserved only where protected by law and held by the publisher. Mandatory rights concerning interoperability, reverse engineering and consumer protection remain unaffected.
+## Sharing and modifications
 
-This permission does not grant rights to download content belonging to others or circumvent website access controls.
+HKDownloader is **free to use**, but it is **not released under an open-source licence**. You are welcome to share links to the [official releases](https://github.com/HKBilel/HKDownloader/releases).
 
-## Software provided as-is
+Except where applicable law permits, do not sell HKDownloader, distribute modified builds under its name, or suggest that you are its official publisher without permission. Applicable mandatory user rights remain unaffected.
 
-To the maximum extent permitted by applicable law, HKDownloader is provided without any guarantee of uninterrupted operation or compatibility with a particular platform or website. Nothing in these terms limits rights that cannot legally be excluded.
+## Responsible use
 
-For official releases visit https://github.com/HKBilel/HKDownloader/releases.
+Only download content you are legally entitled to access and download. These terms do not give you any rights over content belonging to others or permission to bypass access restrictions.
 
-These terms describe the intended conditions for using HKDownloader and are subject to applicable law. For advice on their legal effect or enforceability, consult a qualified legal professional.
+## Availability
+
+HKDownloader is provided without a promise that every website, download or feature will always work. Any limitation of warranty or liability applies only to the extent permitted by law and does not remove rights that cannot legally be excluded.
+
+Official downloads: https://github.com/HKBilel/HKDownloader/releases
