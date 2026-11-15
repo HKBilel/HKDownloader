@@ -1,6 +1,6 @@
 # Third-party software notices
 
-HKDownloader uses or can download the following independent tools. They are maintained by their respective authors and are subject to **their own** licensing terms, which are not overridden by HKCorp's proprietary application licence.
+HKDownloader uses or can download the following independent tools. They are maintained by their respective authors and are subject to **their own** licensing terms, which are not overridden by HKDownloader's end-user terms.
 
 - **yt-dlp** — https://github.com/yt-dlp/yt-dlp — See the project's LICENSE and distribution notices.
 - **FFmpeg / FFprobe** — https://ffmpeg.org/ and https://ffmpeg.org/legal.html — Licensing varies with the FFmpeg build and its compile-time options (often LGPL or GPL). Consult the actual build's notices.
