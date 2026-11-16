@@ -18,7 +18,7 @@ HKDownloader est développé indépendamment par **HKBilel**, sous le nom de pro
 
 ![HKDownloader light and dark interface](https://github.com/user-attachments/assets/0f73cc30-2613-459f-8e07-a9f95f6610f0)
 
-<a id="features"></a>
+<a name="features"></a>
 ## Fonctionnalités
 
 - **Vidéo et audio :** MP4, MP3 et playlists selon les possibilités de yt-dlp et du site d'origine.
@@ -30,7 +30,7 @@ HKDownloader est développé indépendamment par **HKBilel**, sous le nom de pro
 - **Outils :** installation et vérification des mises à jour de yt-dlp, FFmpeg et Deno.
 - **Session du navigateur :** utilisation facultative et autorisée ; aucun contournement des abonnements ou contrôles d'accès.
 
-<a id="installation"></a>
+<a name="installation"></a>
 ## Téléchargement et installation
 
 1. Téléchargez l'archive ZIP officielle pour Windows x64.
@@ -43,26 +43,26 @@ HKDownloader est développé indépendamment par **HKBilel**, sous le nom de pro
 
 > Téléchargez le ZIP de l'application, pas les archives « Source code » générées par GitHub : celles-ci ne contiennent que la documentation publique, ni l'application ni son code source privé.
 
-<a id="privacy"></a>
+<a name="privacy"></a>
 ## Confidentialité et utilisation responsable
 
 Aucun compte HKDownloader n'est nécessaire. L'accès à une session de navigateur est facultatif et soumis à autorisation. yt-dlp peut lire des cookies locaux et les transmettre au site concerné lors de requêtes autorisées. Ne publiez pas de journaux contenant des données privées et ne téléchargez que des contenus auxquels vous avez droit.
 
 [Sécurité et confidentialité](../../../SECURITY.md)
 
-<a id="limitations"></a>
+<a name="limitations"></a>
 ## Limites de la v1.0.0
 
 Les sites et formats disponibles dépendent du service et de yt-dlp. Cette version ne propose **ni historique persistant, ni file d'attente multi-éléments, ni téléchargements simultanés de vidéos différentes**. Certains formats permettent jusqu'à quatre fragments en parallèle, ce qui est différent du téléchargement de plusieurs vidéos.
 
-<a id="support"></a>
+<a name="support"></a>
 ## Me soutenir
 
 HKDownloader est **100 % gratuit**, sans fonctionnalités premium ni abonnement. Vous pouvez soutenir son développement indépendant sur Patreon, de manière facultative. Les dons ne débloquent aucune fonctionnalité.
 
 [**Support me · Patreon**](https://www.patreon.com/cw/HKBilel/membership)
 
-<a id="terms"></a>
+<a name="terms"></a>
 ## Licence et composants tiers
 
 **HKBilel** publie HKDownloader en tant que développeur indépendant sous le nom de projet **HKCorp**, sans prétendre à une société ou marque déposée. Le code source de l'application n'est pas publié ici. Les conditions d'utilisation sont gratuites et les outils tiers conservent leurs propres licences.

@@ -18,7 +18,7 @@ HKDownloader は **HKBilel** が **HKCorp** というプロジェクト名で個
 
 ![HKDownloader light and dark interface](https://github.com/user-attachments/assets/0f73cc30-2613-459f-8e07-a9f95f6610f0)
 
-<a id="features"></a>
+<a name="features"></a>
 ## 主な機能
 
 - **動画・音声：** サイトと yt-dlp が対応する場合に、MP4、MP3、プレイリストをダウンロードできます。
@@ -30,7 +30,7 @@ HKDownloader は **HKBilel** が **HKCorp** というプロジェクト名で個
 - **外部ツール：** yt-dlp、FFmpeg、Deno のインストールと更新確認。
 - **ブラウザーセッション：** 同意の上で認可されたコンテンツに対して任意で利用可能。課金やアクセス制限を回避するものではありません。
 
-<a id="installation"></a>
+<a name="installation"></a>
 ## ダウンロードとインストール
 
 1. Windows x64 用の公式 ZIP をダウンロードします。
@@ -43,26 +43,26 @@ HKDownloader は **HKBilel** が **HKCorp** というプロジェクト名で個
 
 > GitHub が自動生成する「Source code」ではなく、アプリ用の ZIP をダウンロードしてください。自動生成ファイルには公開ドキュメントのみが含まれ、アプリ本体や非公開のソースコードは含まれません。
 
-<a id="privacy"></a>
+<a name="privacy"></a>
 ## プライバシーと適切な利用
 
 HKDownloader のアカウントは不要です。ブラウザーセッションの利用は任意で、同意が必要です。認可されたアクセスの際、yt-dlp がローカル Cookie を読み取り、対応するサイトに送信する場合があります。個人情報を含むログを公開せず、権限のあるコンテンツのみをダウンロードしてください。
 
 [セキュリティとプライバシー](../../../SECURITY.md)
 
-<a id="limitations"></a>
+<a name="limitations"></a>
 ## v1.0.0 の制限事項
 
 対応サイトや形式はサービスと yt-dlp に依存します。このバージョンには**永続的な履歴、複数ダウンロードのキュー、異なる動画の同時ダウンロードはありません**。一部の形式では最大 4 個の断片を並列処理できますが、複数動画の同時処理とは異なります。
 
-<a id="support"></a>
+<a name="support"></a>
 ## 開発を支援
 
 HKDownloader は**完全無料**で、プレミアム機能やサブスクリプションはありません。Patreon から任意で個人開発を支援できます。支援によって追加機能が解放されることはありません。
 
 [**Support me · Patreon**](https://www.patreon.com/cw/HKBilel/membership)
 
-<a id="terms"></a>
+<a name="terms"></a>
 ## ライセンスと外部ツール
 
 **HKBilel** が **HKCorp** というプロジェクト名で個人公開しています。会社や商標が登録されているという意味ではありません。アプリのソースコードはこの公開リポジトリにはありません。無料の利用条件が適用され、外部ツールにはそれぞれのライセンスが適用されます。

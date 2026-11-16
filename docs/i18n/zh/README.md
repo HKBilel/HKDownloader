@@ -18,7 +18,7 @@ HKDownloader 由独立开发者 **HKBilel** 以 **HKCorp** 项目名称发布，
 
 ![HKDownloader light and dark interface](https://github.com/user-attachments/assets/0f73cc30-2613-459f-8e07-a9f95f6610f0)
 
-<a id="features"></a>
+<a name="features"></a>
 ## 主要功能
 
 - **视频和音频：** 在来源网站及 yt-dlp 支持的情况下，下载 MP4、MP3 和播放列表。
@@ -30,7 +30,7 @@ HKDownloader 由独立开发者 **HKBilel** 以 **HKCorp** 项目名称发布，
 - **工具管理：** 安装 yt-dlp、FFmpeg 和 Deno，并检查更新。
 - **浏览器会话：** 在获得许可后，可选地使用已授权的浏览器会话；不会绕过付费订阅或访问控制。
 
-<a id="installation"></a>
+<a name="installation"></a>
 ## 下载与安装
 
 1. 下载适用于 Windows x64 的官方 ZIP 压缩包。
@@ -43,26 +43,26 @@ HKDownloader 由独立开发者 **HKBilel** 以 **HKCorp** 项目名称发布，
 
 > 请下载应用程序 ZIP，而不是 GitHub 自动生成的“Source code”压缩包。后者只包含公开文档，不包含应用本体或其私有源代码。
 
-<a id="privacy"></a>
+<a name="privacy"></a>
 ## 隐私及合理使用
 
 使用 HKDownloader 不需要账号。使用浏览器会话是可选功能，且必须获得用户许可。在授权访问时，yt-dlp 可能读取本地 Cookie 并将其发送至相应网站。不要公开包含私人信息的日志，只下载自己有权获取的内容。
 
 [安全与隐私](../../../SECURITY.md)
 
-<a id="limitations"></a>
+<a name="limitations"></a>
 ## v1.0.0 的限制
 
 可用的网站和格式取决于平台及 yt-dlp。本版本**不支持持久化下载历史、多任务队列或同时下载不同视频**。部分格式可以并行下载最多四个片段，但这不等同于同时下载多个视频。
 
-<a id="support"></a>
+<a name="support"></a>
 ## 支持我
 
 HKDownloader **完全免费**，没有高级付费功能或订阅。你可以自愿通过 Patreon 支持独立开发，赞助不会解锁额外功能。
 
 [**Support me · Patreon**](https://www.patreon.com/cw/HKBilel/membership)
 
-<a id="terms"></a>
+<a name="terms"></a>
 ## 许可与第三方组件
 
 **HKBilel** 以独立开发者身份、使用 **HKCorp** 项目名称发布 HKDownloader，并不表示已注册公司或商标。本公开仓库不提供应用源代码。软件适用免费的最终用户使用条款，各第三方工具仍遵循各自的许可证。
