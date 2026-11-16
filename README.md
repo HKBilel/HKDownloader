@@ -8,6 +8,8 @@
 [![yt-dlp](https://img.shields.io/badge/Powered%20by-yt--dlp-24292f)](https://github.com/yt-dlp/yt-dlp)
 [![Patreon](https://img.shields.io/badge/Support%20me-Patreon-FF424D?logo=patreon&logoColor=white)](https://www.patreon.com/cw/HKBilel/membership)
 
+**🌐 Language:** **English** · [Español](docs/i18n/es/README.md) · [Français](docs/i18n/fr/README.md) · [Deutsch](docs/i18n/de/README.md) · [Português](docs/i18n/pt/README.md) · [Italiano](docs/i18n/it/README.md) · [العربية](docs/i18n/ar/README.md) · [日本語](docs/i18n/ja/README.md) · [简体中文](docs/i18n/zh/README.md)
+
 **100% free Windows video & audio downloader powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp). Download MP4, MP3 and playlists with a modern interface available in 9 languages.**
 
 HKDownloader is independently developed by **HKBilel** under the **HKCorp** project name. It combines selectable download quality, a translucent glass-inspired interface, light and dark themes, and optional browser-session support. All features are free, with no account or subscription required.
@@ -17,6 +19,10 @@ HKDownloader is independently developed by **HKBilel** under the **HKCorp** proj
 ### [Download HKDownloader v1.0.0 for Windows (ZIP)](https://github.com/HKBilel/HKDownloader/releases/download/v1.0.0/HKDownloader-Windows-x64-v1.0.0.zip)
 
 [View the release](https://github.com/HKBilel/HKDownloader/releases/tag/v1.0.0) · [Verify the ZIP (SHA-256)](https://github.com/HKBilel/HKDownloader/releases/download/v1.0.0/HKDownloader-Windows-x64-v1.0.0.zip.sha256) · [Report an issue](https://github.com/HKBilel/HKDownloader/issues)
+
+## Explore HKDownloader
+
+[**About me**](docs/ABOUT.md) · [Features](#features) · [Installation](#download-and-installation) · [Privacy](#privacy-and-responsible-use) · [Limitations](#limitations-of-v100) · [Support me](#support-me) · [Terms](#licence-terms-and-third-party-acknowledgements)
 
 ![HKDownloader desktop application, light and dark interface](https://github.com/user-attachments/assets/0f73cc30-2613-459f-8e07-a9f95f6610f0)
 
@@ -79,7 +85,7 @@ Available sites, formats, resolutions and watermark-free sources depend on the p
 
 A persistent download history, multi-item download queue and simultaneous downloads of **different videos** are **not included** in v1.0.0. Up to four parallel fragments may be used for compatible formats; this is not the same as multiple concurrent videos.
 
-## Support HKDownloader on Patreon ❤️
+## Support me
 
 I develop and maintain HKDownloader independently and keep it **100% free**, without premium tiers or paid features. If you find the app useful and would like to help me continue improving it, you can [**support my work on Patreon**](https://www.patreon.com/cw/HKBilel/membership).
 
