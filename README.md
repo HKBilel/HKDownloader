@@ -6,7 +6,7 @@
 [![Free](https://img.shields.io/badge/Free%20to%20use-100%25-2e7d32)](EULA.md)
 [![Licence](https://img.shields.io/badge/Licence-Proprietary-555555)](EULA.md)
 [![yt-dlp](https://img.shields.io/badge/Powered%20by-yt--dlp-24292f)](https://github.com/yt-dlp/yt-dlp)
-[![Patreon](https://img.shields.io/badge/Support%20HKDownloader-Patreon-FF424D?logo=patreon&logoColor=white)](https://www.patreon.com/cw/HKBilel/membership)
+[![Patreon](https://img.shields.io/badge/Support%20me-Patreon-FF424D?logo=patreon&logoColor=white)](https://www.patreon.com/cw/HKBilel/membership)
 
 **100% free Windows video & audio downloader powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp). Download MP4, MP3 and playlists with a modern interface available in 9 languages.**
 
