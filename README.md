@@ -8,9 +8,9 @@
 [![yt-dlp](https://img.shields.io/badge/Powered%20by-yt--dlp-24292f)](https://github.com/yt-dlp/yt-dlp)
 [![Patreon](https://img.shields.io/badge/Support%20HKDownloader-Patreon-FF424D?logo=patreon&logoColor=white)](https://www.patreon.com/cw/HKBilel/membership)
 
-**Free Windows desktop downloader for video, audio and playlists.**
+**100% free Windows video & audio downloader powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp). Download MP4, MP3 and playlists with a modern interface available in 9 languages.**
 
-I'm the independent developer behind **HKDownloader**, a free Windows desktop downloader released under the **HKCorp** name. Built around [yt-dlp](https://github.com/yt-dlp/yt-dlp), it combines video and audio downloading with a clean, monochrome glass-inspired interface, light and dark themes, and nine interface languages.
+HKDownloader is independently developed by **HKBilel** under the **HKCorp** project name. It combines selectable download quality, a translucent glass-inspired interface, light and dark themes, and optional browser-session support. All features are free, with no account or subscription required.
 
 **v1.0.0 Stable · Windows 10/11 x64 · 100% free · No subscriptions or premium tiers**
 
